@@ -8,11 +8,9 @@ const bcrypt = require("bcryptjs");
 const path = require('path');
 require('dotenv').config();
 
-const mongoose = require('mongoose');
-
 // Connect to MongoDB
 const mongoDb = process.env.DB_URI;
-mongoose.connect(mongoDb, { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect(mongoDb);
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'mongo connection error'));
 // User Schema
